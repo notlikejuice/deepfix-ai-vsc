@@ -1,0 +1,54 @@
+{
+  "name": "deepfix",
+  "displayName": "DeepFix",
+  "description": "A VSCode extension for deep code analysis and automated fixes",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "deepfix",
+          "title": "DeepFix",
+          "icon": "resources/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "deepfix": [
+        {
+          "id": "deepfixSidebar",
+          "name": "DeepFix Chat"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "deepfix.openChat",
+        "title": "Open DeepFix Chat"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^16.0.0",
+    "@types/vscode": "^1.60.0",
+    "eslint": "^7.32.0",
+    "typescript": "^4.4.3"
+  }
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <!-- Rounded purple background -->
+  <rect x="0" y="0" width="128" height="128" rx="16" fill="#6200ee"/>
+  <!-- Left bracket -->
+  <polyline points="48,32 32,64 48,96" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Right bracket -->
+  <polyline points="80,32 96,64 80,96" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

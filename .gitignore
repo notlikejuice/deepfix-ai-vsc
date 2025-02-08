@@ -16,6 +16,7 @@ dist/
 
 # Ustawienia IDE
 .vscode/
+.vscode-test/
 .idea/
 
 # Logi i pliki tymczasowe

@@ -1,24 +1,10 @@
-# DeepFix
+# DeepFix Extension
 
-DeepFix is a VSCode extension for deep code analysis and automated fixes.
+DeepFix Extension provides deep code analysis and automated fixes directly within VSCode.
 
-This project is based on a bundler created using "yo generate code esbuild.js".
+## Features
 
-## Installation
+- Deep code analysis
+- Automated code fixes
 
-1. Install dependencies:
-   ```
-   npm install
-   ```
-2. Compile the project:
-   ```
-   npm run compile
-   ```
-
-## Usage
-
-Start working in VSCode and enjoy the deep code analysis and automated fixes features.
-
-## License
-
-This project is licensed for use only with the express permission of the author. See the LICENSE file for details.
+For support, visit the repository on GitHub.

@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Kompilowane pliki TypeScript
+out/
+dist/
+*.js
+*.js.map
+
+# Ustawienia środowiska
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Ustawienia IDE
+.vscode/
+.idea/
+
+# Logi i pliki tymczasowe
+*.log
+*.tmp
+*.temp
+
+# Pliki systemowe
+.DS_Store
+Thumbs.db

@@ -1,54 +1,31 @@
 {
   "name": "deepfix",
-  "displayName": "DeepFix",
-  "description": "A VSCode extension for deep code analysis and automated fixes",
+  "displayName": "DeepFix AI",
+  "description": "DeepFix is a VSCode extension for deep code analysis and automated fixes.",
   "version": "0.1.0",
+  "publisher": "notlikejuice",
   "engines": {
-    "vscode": "^1.75.0"
+    "vscode": "^1.97.0"
   },
   "categories": [
     "Other"
   ],
-  "main": "./out/extension.js",
-  "contributes": {
-    "viewsContainers": {
-      "activitybar": [
-        {
-          "id": "deepfix",
-          "title": "DeepFix",
-          "icon": "resources/icon.svg"
-        }
-      ]
-    },
-    "views": {
-      "deepfix": [
-        {
-          "id": "deepfixSidebar",
-          "name": "DeepFix Chat"
-        }
-      ]
-    },
-    "commands": [
-      {
-        "command": "deepfix.openChat",
-        "title": "Open DeepFix Chat"
-      }
-    ]
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/notlikejuice/deepfix-ai-vsc"
   },
+  "activationEvents": [
+    "onCommand:deepfix.openChat",
+    "onView:deepfixSidebar"
+  ],
+  "main": "./out/extension.js",
   "scripts": {
     "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "compile": "tsc -p ./"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.14",
-    "@types/mocha": "^10.0.10",
-    "@types/node": "^16.0.0",
-    "@types/vscode": "^1.60.0",
-    "eslint": "^7.32.0",
-    "typescript": "^4.4.3"
-  }
+    "typescript": "^4.0.0",
+    "vscode": "^1.1.37"
+  },
+  "dependencies": {}
 }

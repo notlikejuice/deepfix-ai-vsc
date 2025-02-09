@@ -1,11 +1,9 @@
 # Dependencies
 node_modules/
 
-# Kompilowane pliki TypeScript
+# Kompilowane pliki TypeScript (wyjście)
 out/
 dist/
-*.js
-*.js.map
 
 # Ustawienia środowiska
 .env
@@ -13,6 +11,7 @@ dist/
 .env.development
 .env.test
 .env.production
+.dev-tests
 
 # Ustawienia IDE
 .vscode/

@@ -1,15 +1,23 @@
 {
 	"compilerOptions": {
-		"module": "Node16",
-		"target": "ES2022",
+		"outDir": "./out",
+		"rootDir": "./src",
+		"module": "commonjs",
+		"target": "es6",
 		"lib": [
-			"ES2022"
+			"es6"
 		],
 		"sourceMap": true,
-		"rootDir": "src",
 		"strict": true,
 		"esModuleInterop": true,
-		"allowSyntheticDefaultImports": true,
 		"skipLibCheck": true
-	}
+	},
+	"include": [
+		"src/**/*.ts"
+	],
+	"exclude": [
+		"node_modules",
+		"src/**/*.js",
+		"src/**/*.js.map"
+	]
 }

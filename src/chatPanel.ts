@@ -13,7 +13,7 @@ export function createChatPanel(context: vscode.ExtensionContext) {
     );
 
     // Pobierz listę aktualnie widocznych plików w edytorze
-    const openFiles = vscode.window.visibleTextEditors.map(editor => editor.document.fileName);
+const openFiles = vscode.window.visibleTextEditors.map((editor: vscode.TextEditor) => editor.document.fileName);
 
     panel.webview.html = getChatPanelContent(openFiles);
 

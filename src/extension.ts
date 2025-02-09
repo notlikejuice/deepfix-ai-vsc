@@ -1,4 +1,5 @@
-import * as vscode from 'vscode';
+import * as vscode from 'vscode'; // Ensure this import is correct
+import axios from 'axios'; // Import axios for API requests
 import { demoBasicFunctionalities } from './codeFunctions';
 
 async function askForApiKey() {
@@ -47,9 +48,15 @@ export async function activate(context: vscode.ExtensionContext) {
             vscode.commands.executeCommand('workbench.view.extension.deepfixSidebar');
         })
     );
+
     context.subscriptions.push(
-        vscode.commands.registerCommand('deepfix.focusChat', () => {
-            vscode.commands.executeCommand('workbench.view.extension.deepfixSidebar');
+        vscode.commands.registerCommand('deepfix.sendMessage', async (message: string) => {
+            const apiKey = vscode.workspace.getConfiguration('deepfix').get<string>('apiKey');
+            const response = await axios.post('http://localhost:3000/chat/completions', {
+                prompt: message,
+                apiKey: apiKey
+            });
+            vscode.window.showInformationMessage(`Response: ${response.data}`);
         })
     );
 

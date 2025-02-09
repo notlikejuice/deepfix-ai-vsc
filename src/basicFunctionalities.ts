@@ -1,4 +1,4 @@
-import * as vscode from 'vscode';
+import * as vscode from 'vscode'; // Ensure this import is correct
 import * as fs from 'fs';
 import * as ts from 'typescript';
 

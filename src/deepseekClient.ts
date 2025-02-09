@@ -1,5 +1,5 @@
 import axios from 'axios';
-import * as vscode from 'vscode';
+import * as vscode from 'vscode'; // Ensure this import is correct
 
 export async function askDeepSeek(prompt: string): Promise<string> {
     const config = vscode.workspace.getConfiguration('deepfix');

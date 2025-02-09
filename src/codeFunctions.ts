@@ -1,4 +1,4 @@
-import * as vscode from 'vscode';
+import * as vscode from 'vscode'; // Ensure this import is correct
 
 // Placeholder function for checking bugs
 export function checkForBugs() {

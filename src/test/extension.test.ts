@@ -1,15 +1,37 @@
-import * as assert from 'assert';
+import { DeepSeekClient } from '../services/DeepSeekClient';
+import axios from 'axios';
 
-// You can import and use all API from the 'vscode' module
-// as well as import your extension to test it
-import * as vscode from 'vscode';
-// import * as myExtension from '../../extension';
+jest.mock('axios');
 
-suite('Extension Test Suite', () => {
-	vscode.window.showInformationMessage('Start all tests.');
+describe('DeepSeekClient', () => {
+  let client: DeepSeekClient;
 
-	test('Sample test', () => {
-		assert.strictEqual(-1, [1, 2, 3].indexOf(5));
-		assert.strictEqual(-1, [1, 2, 3].indexOf(0));
-	});
+  beforeEach(() => {
+    client = DeepSeekClient.getInstance();
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('should send requests correctly', async () => {
+    const mockResponse = { status: 'ok' };
+    (axios.post as jest.Mock).mockResolvedValue(mockResponse);
+
+    await client.sendRequest('test prompt');
+    expect(axios.post).toHaveBeenCalledWith('http://localhost:3000/api', { prompt: 'test prompt' });
+  });
+
+  it('should handle batch requests', async () => {
+    const mockResponses = Array(3).fill(null).map((_, index) => ({ status: 'ok', prompt: `prompt ${index + 1}` }));
+    (axios.post as jest.Mock).mockResolvedValueOnce(mockResponses[0]);
+    (axios.post as jest.Mock).mockResolvedValueOnce(mockResponses[1]);
+    (axios.post as jest.Mock).mockResolvedValueOnce(mockResponses[2]);
+
+await DeepSeekClient.sendBatchRequests(['prompt 1', 'prompt 2', 'prompt 3']);
+
+    expect(axios.post).toHaveBeenCalledWith('http://localhost:3000/api', { prompt: 'prompt 1' });
+    expect(axios.post).toHaveBeenCalledWith('http://localhost:3000/api', { prompt: 'prompt 2' });
+    expect(axios.post).toHaveBeenCalledWith('http://localhost:3000/api', { prompt: 'prompt 3' });
+  });
 });

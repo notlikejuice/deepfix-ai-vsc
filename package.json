@@ -2,7 +2,7 @@
   "name": "deepfix",
   "displayName": "DeepFix AI",
   "description": "DeepFix is a VSCode extension for deep code analysis and automated fixes.",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "publisher": "notlikejuice",
   "engines": {
     "vscode": "^1.97.0"
@@ -17,28 +17,40 @@
     "type": "git",
     "url": "https://github.com/notlikejuice/deepfix-ai-vsc"
   },
-  "activationEvents": [
-    "onCommand:deepfix.openChat",
-    "onView:deepfixSidebar"
+  "keywords": [
+    "AI",
+    "Code Analysis",
+    "Automated Fixes",
+    "DeepSeek",
+    "VSCode Extension"
   ],
+  "license": "MIT",
   "main": "./out/extension.js",
   "scripts": {
     "test": "jest",
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
-    "start": "node ./out/extension.js"
+    "start": "node ./out/extension.js",
+    "lint": "eslint src -extension .ts,.tsx",
+    "watch": "tsc -watch -p ./",
+    "build": "npm run compile && npm run lint"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
     "@types/jest": "^29.5.14",
+    "@types/node": "^20.0.0",
     "@types/vscode": "^1.97.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
     "axios": "^1.0.0",
+    "eslint": "^8.0.0",
     "express": "^5.0.0",
     "jest": "^29.7.0",
     "prettier": "^3.5.0",
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "dotenv": "^16.4.7",
     "envdot": "^0.0.3",
     "pinia": "^2.0.0",
     "vue": "^3.5.13",
@@ -62,6 +74,13 @@
           "name": "DeepFix View"
         }
       ]
-    }
-  }
+    },
+  "activationEvents": [
+    "onView:deepfixView"
+  ]
+  },
+  "bugs": {
+    "url": "https://github.com/notlikejuice/deepfix-ai-vsc/issues"
+  },
+  "homepage": "https://github.com/notlikejuice/deepfix-ai-vsc#readme"
 }
